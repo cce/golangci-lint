@@ -387,6 +387,9 @@ type DocnameTypoSettings struct {
 	IncludeInterfaceMethods  bool   `mapstructure:"include-interface-methods"`
 	AllowedLeadingWords      string `mapstructure:"allowed-leading-words"`
 	AllowedPrefixes          string `mapstructure:"allowed-prefixes"`
+	SkipPlainWordCamel       bool   `mapstructure:"skip-plain-word-camel"`
+	MaxCamelChunkInsert      int    `mapstructure:"max-camel-chunk-insert"`
+	MaxCamelChunkReplace     int    `mapstructure:"max-camel-chunk-replace"`
 }
 
 type DogsledSettings struct {

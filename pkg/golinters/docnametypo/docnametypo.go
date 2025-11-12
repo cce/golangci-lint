@@ -19,6 +19,9 @@ func New(settings *config.DocnameTypoSettings) *goanalysis.Linter {
 			"include-types":             settings.IncludeTypes,
 			"include-generated":         settings.IncludeGenerated,
 			"include-interface-methods": settings.IncludeInterfaceMethods,
+			"skip-plain-word-camel":     settings.SkipPlainWordCamel,
+			"max-camel-chunk-insert":    settings.MaxCamelChunkInsert,
+			"max-camel-chunk-replace":   settings.MaxCamelChunkReplace,
 		}
 
 		if settings.AllowedLeadingWords != "" {

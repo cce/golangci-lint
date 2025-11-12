@@ -381,7 +381,8 @@ linters:
     # https://github.com/cce/docnametypo
     docnametypo:
       # Maximum Damerau-Levenshtein distance before a pair of words stops being considered a typo.
-      # Default: 1
+      # Guarded by a length/proportion gate to avoid matching whole sentences.
+      # Default: 5
       maxdist: 2
       # Check unexported functions/methods/types.
       # Default: true
@@ -404,6 +405,15 @@ linters:
       # Comma-separated list of symbol prefixes (such as "op") that may be stripped before comparing to the doc token.
       # Default: ""
       allowed-prefixes: "op,ui"
+      # Skip simple leading words (e.g. "Delete", "Add") when the symbol contains camelCase segments to reduce narrative false positives.
+      # Default: true
+      skip-plain-word-camel: true
+      # Maximum number of camelCase chunks that can be inserted or removed before comments stop being treated as typos.
+      # Default: 2
+      max-camel-chunk-insert: 1
+      # Maximum number of camelCase chunks that can be replaced before comments stop being treated as typos.
+      # Default: 2
+      max-camel-chunk-replace: 1
 
     dogsled:
       # Checks assignments with too many blank identifiers.
